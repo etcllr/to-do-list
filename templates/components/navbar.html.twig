@@ -20,9 +20,20 @@
                 </h4>
             </a>
 
-            <h4 class="header-subtitle">
-                Se connecter
-            </h4>
+            {% if app.user %}
+                <a style="text-decoration: none" href="{{ path('login') }}">
+                    <h4 class="header-subtitle">
+                        Se connecter
+                    </h4>
+                </a>
+            {% else %}
+                <a style="text-decoration: none" href="{{ path('login') }}">
+                    <h4 class="header-subtitle">
+                        Se déconnecter
+                    </h4>
+                </a>
+            {% endif %}
+
         </div>
     </nav>
 {% endblock %}

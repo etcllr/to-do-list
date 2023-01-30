@@ -6,8 +6,8 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <a class="btn btn-outline-primary" href="#">
-                    Mes tâches
+                <a class="btn btn-outline-primary" href="{{ path('add') }}">
+                    Ajouter une tâche
                 </a>
             </div>
             <div class="card-body">
@@ -17,7 +17,7 @@
                         <th>Description</th>
                         <th>Date de fin</th>
                         <th>Statut</th>
-                        <th width="240px">Action</th>
+                        <th width="210px">Action</th>
                     </tr>
                     {% for task in tasks %}
                         <tr>
@@ -25,7 +25,17 @@
                             <td>{{ task.description }}</td>
                             <td>{{ task.state }}</td>
                             <td>{{ task.dateEnd ? task.dateEnd|date('Y-m-d') : '' }}</td>
-                            <td></td>
+                            <td>
+                                <form method="post">
+                                    <a
+                                            class="btn btn-outline-success"
+                                            href="{{ path('edit', {'id': task.id}) }}">
+                                        Modifier
+                                    </a>
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task.id) }}">
+                                    <button class="btn btn-outline-danger">Supprimer</button>
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                 </table>
