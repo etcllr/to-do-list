@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ component('navbar') }}
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-primary" href="#">
+                    Mes tâches
+                </a>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Date de fin</th>
+                        <th>Statut</th>
+                        <th width="240px">Action</th>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('navbar') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('navbar') }}
+{% endblock %}
+
+{% block body %}
+    <nav>
+        <img class="header-logo" src="{{ asset('build/img/logo.png') }}" alt="logo">
+        <div class="header-actions">
+            <a style="text-decoration: none" href="{{ path('add') }}">
+                <h4 class="header-subtitle">
+                    Ajouter une tâche
+                </h4>
+            </a>
+
+            <h4 class="header-subtitle">
+                Se connecter
+            </h4>
+        </div>
+    </nav>
+{% endblock %}
