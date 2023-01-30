@@ -19,7 +19,15 @@
                         <th>Statut</th>
                         <th width="240px">Action</th>
                     </tr>
-
+                    {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.title }}</td>
+                            <td>{{ task.description }}</td>
+                            <td>{{ task.state }}</td>
+                            <td>{{ task.dateEnd ? task.dateEnd|date('Y-m-d') : '' }}</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>

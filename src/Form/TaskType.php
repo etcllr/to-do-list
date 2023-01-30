@@ -3,9 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Task;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use function Webmozart\Assert\Tests\StaticAnalysis\string;
 
 class TaskType extends AbstractType
 {
@@ -14,7 +17,11 @@ class TaskType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('state')
+            ->add('state', ChoiceType::class, array('choices' => array(
+                'À faire'=>'À faire',
+                'En cours'=>'En cours',
+                'Fini'=>'Fini'
+            )))
             ->add('dateEnd')
         ;
     }

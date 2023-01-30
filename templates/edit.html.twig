@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition d'une tâche{% endblock %}
+
+{% block body %}
+    {{ component('navbar') }}
+    <br>
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Édition d'une tâche</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('home') }}">
+                    Voir To-do list
+                </a>
+            </div>
+            <div class="card-body">
+                {{ include('_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
